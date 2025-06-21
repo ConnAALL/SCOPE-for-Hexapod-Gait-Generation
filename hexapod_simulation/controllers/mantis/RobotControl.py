@@ -4,6 +4,7 @@ There are two classes:
     1. Managing the robot itself
     2. Managing the individual motors (this class is used by the robot class)
 """
+
 import os
 import json
 import math
