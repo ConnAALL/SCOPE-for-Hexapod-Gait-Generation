@@ -5,7 +5,6 @@ Each candidate is evaluated for a fixed number of simulation steps (TRIAL_STEPS)
 and the robot is reset after each trial.
 """
 
-from controller import Supervisor  # type:ignore
 import os
 import sys
 import json
@@ -18,50 +17,30 @@ from SteadyStateGA import SteadyStateGA
 config_file = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'config.txt'))
 with open(config_file, 'r') as file: config = json.load(file)
 
-# These hyperparameters are used to calculate the chromosome size.
-SSVD_LAYER_COUNT = config["SSVD_LAYER_COUNT"]
-INPUT_DIMS = config["INPUT_DIMS"]
-OUTPUT_SIZE = config["OUTPUT_SIZE"]
+# SSGA hyperparameters
 CHROMOSOME_SIZE = config["CHROMOSOME_SIZE"]
-
-# GA hyperparameters
 POP_SIZE = config["POP_SIZE"]
 MAX_GENERATIONS = config["MAX_GENERATIONS"]
 TRIAL_STEPS = config["TRIAL_STEPS"]
 MUTATION_RATE = config["MUTATION_RATE"]
 MUTATION_SCALE = config["MUTATION_SCALE"]
 STABLE_FITNESS = bool(config["STABLE_FITNESS"])
-
-# SVD hyperparameters
-SVD_RANK = config["EFFECTIVE_RANK"]
-MODEL_TYPE = config["MODEL_TYPE"]
-
-# Motor Parameters
-LIMIT_ROM_DEGREES = config["LIMIT_ROM_DEGREES"]
-MOTOR_LIMITS = {
-    name: tuple(bounds)
-    for name, bounds in config['MOTOR_LIMITS_DEG'].items()
-}
-
 AUTO_RESTART = config["AUTO_RESTART"]
 
-
-
+# Parameters for logging - load all config values for complete parameter tracking
 PARAMETERS = {
-    "SSVD_LAYER_COUNT": SSVD_LAYER_COUNT,
-    "INPUT_DIMS": INPUT_DIMS,
-    "OUTPUT_SIZE": OUTPUT_SIZE,
+    "INPUT_DIMS": config["INPUT_DIMS"],
+    "OUTPUT_SIZE": config["OUTPUT_SIZE"],
     "CHROMOSOME_SIZE": CHROMOSOME_SIZE,
     "POP_SIZE": POP_SIZE,
     "MAX_GENERATIONS": MAX_GENERATIONS,
     "TRIAL_STEPS": TRIAL_STEPS,
     "MUTATION_RATE": MUTATION_RATE,
     "MUTATION_SCALE": MUTATION_SCALE,
-    "LIMIT_ROM_DEGREES": LIMIT_ROM_DEGREES,
-    "MOTOR_LIMITS": MOTOR_LIMITS,
-    "EFFECTIVE_SVD_RANK": SVD_RANK,
+    "LIMIT_ROM_DEGREES": config["LIMIT_ROM_DEGREES"],
+    "MOTOR_LIMITS": {name: tuple(bounds) for name, bounds in config['MOTOR_LIMITS_DEG'].items()},
     "STABLE_FITNESS": STABLE_FITNESS,
-    "MODEL_TYPE": MODEL_TYPE,
+    "MODEL_TYPE": config["MODEL_TYPE"],
 }
 
 def run_steady_state_ga():

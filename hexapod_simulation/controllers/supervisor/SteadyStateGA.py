@@ -26,15 +26,6 @@ class SteadyStateGA:
         self.population = [np.random.uniform(-1, 1, chromosome_size) for _ in range(population_size)]
         self.fitnesses = [0.0] * population_size  # Fitness values for each individual
 
-    def initialize_population(self, evaluate_function):
-        """
-        Evaluate and initialize the entire population using a provided evaluation function.
-        The evaluation function should take a chromosome and return its fitness.
-        """
-        for i in range(self.population_size):
-            fitness = evaluate_function(self.population[i])
-            self.fitnesses[i] = fitness
-
     def crossover(self, parent1, parent2):
         """
         Produce two children (shape (2, chromosome_size)) via single‑point crossover.

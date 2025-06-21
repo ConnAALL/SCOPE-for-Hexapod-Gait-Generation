@@ -10,9 +10,6 @@ import json
 import math
 import csv
 
-import pandas as pd
-import matplotlib.pyplot as plt
-import scienceplots
 from controller import Supervisor # type:ignore
 
 class SimulationControl:
@@ -123,17 +120,6 @@ class SimulationControl:
     def get_position(self):
         """Get the current location of the hexapod robot."""
         return self.position_field.getSFVec3f()
-
-    def get_rotation(self):
-        return self.rotation_field.getSFVec3f()
-    
-    def get_position_change_fromStart(self):
-        """Compute the displacement from the starting position."""
-        start_x, start_y, _ = self.STARTING_POSITION
-        current_x, current_y, _ = self.get_position()
-        dx = current_x - start_x
-        dy = current_y - start_y
-        return math.sqrt(dx ** 2 + dy ** 2)
     
     def get_position_change(self):
         """Compute the displacement from the previous position."""
@@ -156,8 +142,7 @@ class SimulationControl:
         os.makedirs(self.log_dir)
 
         # Create a directory for storing best individuals' weights
-        self.best_indv_dir = os.path.join(self.log_dir, "BEST_INDV")
-        os.makedirs(self.best_indv_dir)
+        os.makedirs(os.path.join(self.log_dir, "BEST_INDV"))
 
         # Create CSV file for logging fitness scores
         runName = self.get_run_name()
