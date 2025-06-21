@@ -1,19 +1,3 @@
-#!/usr/bin/env python3
-"""
-compare_ga_lrep.py
-
-Compare GA vs. LREP on two fronts:
- 1) Final-generation best DistanceDifference
- 2) Area-under-curve (AUC) of DistanceDifference_avg over generations
-
-Performs:
- - Mann–Whitney U test (one-sided: LREP > GA)
- - Cliff's delta effect size
- - Bootstrap 95% CI on median difference
-
-Prints test stats, CIs, and plain-English interpretations.
-"""
-
 import os
 import glob
 import numpy as np

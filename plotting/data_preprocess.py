@@ -1,13 +1,3 @@
-#!/usr/bin/env python3
-"""
-preprocess_csv_to_npy_parallel.py
-
-Read all CSVs from a raw-data folder (including subfolders), compute per-generation best & average
-for DistanceDifference, StabilityRatio, and TotalFitness in parallel,
-and save each result as a .npy file in subfolders named after the CSV's parent folder.
-Optionally extract top-K best individuals from the final generation across all files.
-"""
-
 import os
 import numpy as np
 import pandas as pd
