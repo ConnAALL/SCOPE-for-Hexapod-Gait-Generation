@@ -1,0 +1,27 @@
+{
+  "SSVD_LAYER_COUNT": 3,
+  "OUTPUT_SIZE": 54,
+  "INPUT_DIMS": [6, 9],
+  "CHROMOSOME_SIZE": 108,
+  "POP_SIZE": 100,
+  "MAX_GENERATIONS": 1000000,
+  "TRIAL_STEPS": 470,
+  "MUTATION_RATE": 0.003,
+  "MUTATION_SCALE": 0.5,
+  "LIMIT_ROM_DEGREES": 5,
+  "F": 0.5,
+  "SLICES": 1,
+  "GAIT_STEPS": 97,
+  "MOTOR_LIMITS_DEG": {
+    "RPC": [-15, 15],  "RPF": [40, 80],   "RPT": [-150, -105],
+    "RMC": [-15, 15],  "RMF": [40, 80],   "RMT": [-150, -105],
+    "RAC": [-15, 15],  "RAF": [40, 80],   "RAT": [-150, -105],
+    "LPC": [-15, 15],  "LPF": [40, 80],   "LPT": [-150, -105],
+    "LMC": [-15, 15],  "LMF": [40, 80],   "LMT": [-150, -105],
+    "LAC": [-15, 15],  "LAF": [40, 80],   "LAT": [-150, -105]
+  },
+  "EFFECTIVE_RANK": 4,
+  "STABLE_FITNESS": 0,
+  "MODEL_TYPE": "scope",
+  "AUTO_RESTART": 5000
+}
