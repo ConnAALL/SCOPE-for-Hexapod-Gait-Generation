@@ -1,5 +1,5 @@
 """
-Supervisor script for running CMA-ES with the new SSVD controller.
+Supervisor script for running CMA-ES with the new SCOPE controller.
 This script manages the simulation environment and uses CMA-ES to evolve candidate controllers.
 Each candidate is evaluated for a fixed number of simulation steps (TRIAL_STEPS),
 and the robot is reset after each trial.
@@ -68,7 +68,7 @@ def run_steady_state_ga():
         """Main fitness function in the simulation"""
 
         # Send the chromsome to the mantis robot. 
-        # Chromosome is the weights of the SSVD controller.
+        # Chromosome is the weights of the SCOPE controller.
         sim_control.send_message(chromosome.tolist())
 
         # Run trials for a fixed number of steps

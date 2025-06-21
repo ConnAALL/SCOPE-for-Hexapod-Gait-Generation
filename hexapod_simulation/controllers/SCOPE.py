@@ -53,7 +53,7 @@ class SCOPEController:
     def update_weights(self,
                        new_weights: list) -> None:
         """
-        Update the weights of the SSVD controller.
+        Update the weights of the SCOPE controller.
         """
         self.chromosome = np.array(new_weights[:54])
         self.bias       = np.array(new_weights[54:])
