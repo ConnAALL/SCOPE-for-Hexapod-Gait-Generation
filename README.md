@@ -1,5 +1,9 @@
 # Sparse Cosine Optimized Policy Evolution (SCOPE) for Hexapod Gait Evolution
 
+[Jim O'Connor](https://oconnor.digital.conncoll.edu) | [Jay B. Nash](https://www.linkedin.com/in/jaybnash/) | [Derin Gezgin](https://deringezgin.github.io) | [Gary B. Parker](https://oak.conncoll.edu/parker/)
+
+*Published in IJCCI Conference on Evolutionary Computation and Theory and Applications, 2025*
+
 ## Overview
 
 This repository contains the full source code and assets used for the paper *SCOPE: Spectral Compression for Online Policy Evolution of Hexapod Gaits*.
@@ -75,7 +79,7 @@ The test world loads `test_final_individual/controllers/supervisor/bestIndv.npy`
 ## Configuration
 
 All experiment parameters are collected in
-`hexapod_simulation/controllers/config.txt` (JSON).  Frequently changed keys:
+`hexapod_simulation/controllers/config.txt` (JSON). Frequently changed keys:
 
 | Key | Meaning | Default |
 |-----|---------|---------|
@@ -86,4 +90,17 @@ All experiment parameters are collected in
 | `LIMIT_ROM_DEGREES` | Joint limit per control step | `5` |
 | `F` | Sine frequency for leg trajectory helper | `0.5` |
 
-After editing the file, simply re-launch the world – no recompilation is required.
+After editing the file, simply re-launch the world, no recompilation is required.
+
+## Citation
+
+Please use the following citation when citing this work:
+
+```bibtex
+@article{o2025scope,
+  title={SCOPE for Hexapod Gait Generation},
+  author={O'Connor, Jim and Nash, Jay B and Gezgin, Derin and Parker, Gary B},
+  journal={arXiv preprint arXiv:2507.13539},
+  year={2025}
+}
+```
